@@ -3,7 +3,7 @@ import Header from '../Header/Header.component';
 import AddToDo from '../AddToDo/AddToDo.component';
 import ToDoList from '../ToDoList/ToDoList.component';
 import styles from './App.stylesheet.css';
-import {saveNewTask, getTasks, deleteTask} from '../../services/services';
+import {saveNewTask, getTasks, deleteTask, toggleIsDone} from '../../services/services';
 
 class App extends Component {
 
@@ -11,6 +11,7 @@ class App extends Component {
     super();
     this.handleAddToDo = this.handleAddToDo.bind(this);
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
+    this.handleToggleIsDone = this.handleToggleIsDone.bind(this);
     this.state = {
       tasks: getTasks()
     };
@@ -26,6 +27,11 @@ class App extends Component {
     this.setState({tasks: newTasks});
   }
 
+  handleToggleIsDone(taskID) {
+    const newTasks = toggleIsDone(taskID);
+    this.setState({ tasks: newTasks });
+  }
+
   render() {
     return (
       <div className={styles.App}>
@@ -35,7 +41,11 @@ class App extends Component {
             <AddToDo addTask={this.handleAddToDo}/>
           </div>
           <div className="row">
-            <ToDoList listOfTasks={this.state.tasks} deleteTask={this.handleDeleteTask}/>
+            <ToDoList
+              listOfTasks={this.state.tasks}
+              deleteTask={this.handleDeleteTask}
+              toggleIsDone={this.handleToggleIsDone}
+            />
           </div>
         </main>
       </div>

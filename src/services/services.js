@@ -3,7 +3,12 @@ const generateID = () => {
   savedID ? savedID += 1 : savedID = 1;
   localStorage.setItem('taskID', savedID);
   return savedID;
-}
+};
+
+export const getTasks = () => {
+  let savedTasks = JSON.parse(localStorage.getItem('tasks'));
+  return savedTasks ? savedTasks : [];
+};
 
 export const saveNewTask = name => {
   const taskToSave = {
@@ -23,13 +28,17 @@ export const saveNewTask = name => {
 };
 
 export const deleteTask = taskID => {
-  let savedTasks = JSON.parse(localStorage.getItem('tasks'));
+  const savedTasks = getTasks();
   const newTasks = savedTasks.filter(task => task.id !== taskID);
   localStorage.setItem('tasks', JSON.stringify(newTasks));
   return newTasks;
-}
+};
 
-export const getTasks = () => {
-  let savedTasks = JSON.parse(localStorage.getItem('tasks'));
-  return savedTasks ? savedTasks : [];
-}
+export const toggleIsDone = taskID => {
+  const savedTasks = getTasks();
+  const newTasks = savedTasks.map(
+    task => task.id !== taskID ? task : Object.assign({ ...task, isDone: !task.isDone })
+  );
+  localStorage.setItem('tasks', JSON.stringify(newTasks));
+  return newTasks;
+};

@@ -4,12 +4,18 @@ import styles from './ToDoList.stylesheet.css';
 class ToDoList extends Component {
   constructor() {
     super();
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleDeleteOnClick = this.handleDeleteOnClick.bind(this);
+    this.handleDoneOnClick = this.handleDoneOnClick.bind(this);
   }
 
-  handleOnClick(itemID) {
+  handleDeleteOnClick(itemID) {
     this.props.deleteTask(itemID);
   }
+
+  handleDoneOnClick(itemID) {
+    this.props.toggleIsDone(itemID);
+  }
+
   render() {
     return (
       <section className={styles.ToDoList}>
@@ -20,7 +26,11 @@ class ToDoList extends Component {
                 <span className={styles.itemIndex}>{index + 1}.</span>
                 {item.title}
                 <span className={styles.iconWrapper}>
-                  <i className="trash outline icon" onClick={() => this.handleOnClick(item.id)}></i>
+                  <i
+                    className={`thumbs outline ${item.isDone ? 'up' : 'down'} icon`}
+                    onClick={() => this.handleDoneOnClick(item.id)}
+                  ></i>
+                  <i className="trash outline icon" onClick={() => this.handleDeleteOnClick(item.id)}></i>
                 </span>
               </div>
             </div>
