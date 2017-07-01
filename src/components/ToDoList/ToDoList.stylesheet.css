@@ -6,6 +6,12 @@
   width: 40vw;
   padding: 15px; }
 
+.redBoxShadow {
+  box-shadow: 0 2px 9px 0 #bd3535; }
+
+.greenBoxShadow {
+  box-shadow: 0 2px 9px 0 #00bd27; }
+
 .itemIndex {
   margin-right: 20px; }
 
