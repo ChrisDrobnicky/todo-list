@@ -12,9 +12,10 @@ class AddToDo extends Component {
   }
 
   handleAddTodoClick() {
-    const nameToSave = this.state.taskName;
-    this.props.addToDo(nameToSave);
-  }
+  const nameToSave = this.state.taskName;
+  this.props.addTask(nameToSave);
+  this.setState({ taskName: '' });
+}
 
   handleInputChange(event) {
     this.setState({ taskName: event.target.value });
@@ -24,7 +25,7 @@ class AddToDo extends Component {
     return (
       <section className={styles.AddToDo}>
         <div className="ui huge action input">
-          <input type="text" placeholder="Add ToDo..." onChange={this.handleInputChange}/>
+          <input type="text" placeholder="Add ToDo..." onChange={this.handleInputChange} value={this.state.taskName} />
           <button className="ui icon positive button" onClick={this.handleAddTodoClick}>
             <i className="plus large icon"></i>
           </button>

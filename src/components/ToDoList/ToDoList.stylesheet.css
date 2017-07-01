@@ -11,5 +11,7 @@
 
 .iconWrapper {
   float: right; }
+  .iconWrapper i {
+    cursor: pointer; }
 
 /*# sourceMappingURL=ToDoList.stylesheet.css.map */

@@ -3,44 +3,39 @@ import Header from '../Header/Header.component';
 import AddToDo from '../AddToDo/AddToDo.component';
 import ToDoList from '../ToDoList/ToDoList.component';
 import styles from './App.stylesheet.css';
-import {saveNewTask} from '../../services/services';
+import {saveNewTask, getTasks, deleteTask} from '../../services/services';
 
 class App extends Component {
 
   constructor() {
     super();
-    this.handleAddToDo = this.handleAddToDo.bind();
+    this.handleAddToDo = this.handleAddToDo.bind(this);
+    this.handleDeleteTask = this.handleDeleteTask.bind(this);
+    this.state = {
+      tasks: getTasks()
+    };
   }
 
   handleAddToDo(name) {
-    saveNewTask(name);
+    const newTasks = saveNewTask(name);
+    this.setState({tasks: newTasks});
+  }
+
+  handleDeleteTask(taskID) {
+    const newTasks = deleteTask(taskID);
+    this.setState({tasks: newTasks});
   }
 
   render() {
-    const simulatedTodoList = [
-      {
-        title: 'todo1',
-        isDone: false
-      },
-      {
-        title: 'todo2',
-        isDone: false
-      },
-      {
-        title: 'todo3',
-        isDone: false
-      }
-    ]
-
     return (
       <div className={styles.App}>
         <Header/>
         <main className="ui padded grid">
           <div className="centered row">
-            <AddToDo addToDo={this.handleAddToDo}/>
+            <AddToDo addTask={this.handleAddToDo}/>
           </div>
           <div className="row">
-            <ToDoList toDoList={simulatedTodoList}/>
+            <ToDoList listOfTasks={this.state.tasks} deleteTask={this.handleDeleteTask}/>
           </div>
         </main>
       </div>
