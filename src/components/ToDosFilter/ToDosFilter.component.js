@@ -25,7 +25,7 @@ class ToDosFilter extends Component {
               All
             </button>
             <a className="ui basic left pointing blue label">
-              1,048
+              {this.props.counters.all}
             </a>
           </div>
         </div>
@@ -39,7 +39,7 @@ class ToDosFilter extends Component {
               Unfinished
             </button>
             <a className="ui basic left pointing red label">
-              1,048
+              {this.props.counters.unfinished}
             </a>
           </div>
         </div>
@@ -53,7 +53,7 @@ class ToDosFilter extends Component {
               Finished
             </button>
             <a className="ui basic left pointing green label">
-              1,048
+              {this.props.counters.finished}
             </a>
           </div>
         </div>
