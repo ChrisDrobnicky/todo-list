@@ -17,7 +17,7 @@ class ToDosFilter extends Component {
       <section className={styles.ToDosFilter}>
         <div className={
           `${styles.buttonWrapper}
-          ${this.props.currentFilter === FILTER_ALL ? styles['buttonWrapper--active'] : null}`
+          ${this.props.currentFilter === FILTER_ALL && styles['buttonWrapper--active']}`
         }>
           <div className="ui labeled button">
             <button className="ui blue big button" onClick={() => this.handleFilterClick(FILTER_ALL)}>
@@ -31,7 +31,7 @@ class ToDosFilter extends Component {
         </div>
         <div className={
           `${styles.buttonWrapper}
-          ${this.props.currentFilter === FILTER_UNFINISHED ? styles['buttonWrapper--active'] : null}`
+          ${this.props.currentFilter === FILTER_UNFINISHED && styles['buttonWrapper--active']}`
         }>
           <div className="ui labeled button">
             <button className="ui labeled icon red big button" onClick={() => this.handleFilterClick(FILTER_UNFINISHED)}>
@@ -45,7 +45,7 @@ class ToDosFilter extends Component {
         </div>
         <div className={
           `${styles.buttonWrapper}
-          ${this.props.currentFilter === FILTER_FINISHED ? styles['buttonWrapper--active'] : null}`
+          ${this.props.currentFilter === FILTER_FINISHED && styles['buttonWrapper--active']}`
         }>
           <div className="ui labeled button">
             <button className="ui labeled icon green big button" onClick={() => this.handleFilterClick(FILTER_FINISHED)}>
