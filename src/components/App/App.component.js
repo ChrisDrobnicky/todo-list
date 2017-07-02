@@ -10,6 +10,10 @@ export const FILTER_ALL = 0;
 export const FILTER_UNFINISHED = 1;
 export const FILTER_FINISHED = 2;
 
+const metoda = () => {
+
+}
+
 class App extends Component {
 
   constructor() {
