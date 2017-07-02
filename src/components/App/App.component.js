@@ -2,8 +2,13 @@ import React, {Component} from 'react';
 import Header from '../Header/Header.component';
 import AddToDo from '../AddToDo/AddToDo.component';
 import ToDoList from '../ToDoList/ToDoList.component';
+import ToDosFilter from '../ToDosFilter/ToDosFilter.component';
 import styles from './App.stylesheet.css';
 import {saveNewTask, getTasks, deleteTask, toggleIsDone} from '../../services/services';
+
+export const FILTER_ALL = 0;
+export const FILTER_UNFINISHED = 1;
+export const FILTER_FINISHED = 2;
 
 class App extends Component {
 
@@ -12,8 +17,10 @@ class App extends Component {
     this.handleAddToDo = this.handleAddToDo.bind(this);
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
     this.handleToggleIsDone = this.handleToggleIsDone.bind(this);
+    this.handleFilterToDos = this.handleFilterToDos.bind(this);
     this.state = {
-      tasks: getTasks()
+      tasks: getTasks(),
+      currentFilter: FILTER_ALL
     };
   }
 
@@ -32,6 +39,20 @@ class App extends Component {
     this.setState({ tasks: newTasks });
   }
 
+  handleFilterToDos(filter) {
+    let stateTasksCopy = getTasks().slice();
+    let tasksToSave;
+    if (filter === FILTER_UNFINISHED) {
+      tasksToSave = stateTasksCopy.filter(task => task.isDone === false);
+    } else if (filter === FILTER_FINISHED) {
+      tasksToSave = stateTasksCopy.filter(task => task.isDone === true);
+    }
+    this.setState({
+      tasks: filter === FILTER_ALL ? stateTasksCopy : tasksToSave,
+      currentFilter: filter
+    });
+  }
+
   render() {
     return (
       <div className={styles.App}>
@@ -45,6 +66,12 @@ class App extends Component {
               listOfTasks={this.state.tasks}
               deleteTask={this.handleDeleteTask}
               toggleIsDone={this.handleToggleIsDone}
+            />
+          </div>
+          <div className="centered row">
+            <ToDosFilter
+              filterToDos={this.handleFilterToDos}
+              currentFilter={this.state.currentFilter}
             />
           </div>
         </main>
