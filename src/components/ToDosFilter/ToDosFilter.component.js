@@ -17,7 +17,7 @@ class ToDosFilter extends Component {
       <section className={styles.ToDosFilter}>
         <div className={
           `${styles.buttonWrapper}
-          ${this.props.currentFilter === FILTER_ALL ? styles['buttonWrapper--active'] : null}`
+          ${this.props.currentFilter === FILTER_ALL && styles['buttonWrapper--active']}`
         }>
           <div className="ui labeled button">
             <button className="ui blue big button" onClick={() => this.handleFilterClick(FILTER_ALL)}>
@@ -25,13 +25,13 @@ class ToDosFilter extends Component {
               All
             </button>
             <a className="ui basic left pointing blue label">
-              1,048
+              {this.props.counters.all}
             </a>
           </div>
         </div>
         <div className={
           `${styles.buttonWrapper}
-          ${this.props.currentFilter === FILTER_UNFINISHED ? styles['buttonWrapper--active'] : null}`
+          ${this.props.currentFilter === FILTER_UNFINISHED && styles['buttonWrapper--active']}`
         }>
           <div className="ui labeled button">
             <button className="ui labeled icon red big button" onClick={() => this.handleFilterClick(FILTER_UNFINISHED)}>
@@ -39,13 +39,13 @@ class ToDosFilter extends Component {
               Unfinished
             </button>
             <a className="ui basic left pointing red label">
-              1,048
+              {this.props.counters.unfinished}
             </a>
           </div>
         </div>
         <div className={
           `${styles.buttonWrapper}
-          ${this.props.currentFilter === FILTER_FINISHED ? styles['buttonWrapper--active'] : null}`
+          ${this.props.currentFilter === FILTER_FINISHED && styles['buttonWrapper--active']}`
         }>
           <div className="ui labeled button">
             <button className="ui labeled icon green big button" onClick={() => this.handleFilterClick(FILTER_FINISHED)}>
@@ -53,7 +53,7 @@ class ToDosFilter extends Component {
               Finished
             </button>
             <a className="ui basic left pointing green label">
-              1,048
+              {this.props.counters.finished}
             </a>
           </div>
         </div>
