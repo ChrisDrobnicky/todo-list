@@ -3,6 +3,7 @@ import Header from '../Header/Header.component';
 import AddToDo from '../AddToDo/AddToDo.component';
 import ToDoList from '../ToDoList/ToDoList.component';
 import ToDosFilter from '../ToDosFilter/ToDosFilter.component';
+import Legend from '../Legend/Legend.component';
 import styles from './App.stylesheet.css';
 import {saveNewTask, getTasks, deleteTask, toggleIsDone} from '../../services/services';
 
@@ -93,6 +94,9 @@ class App extends Component {
           <div className="centered row">
             <AddToDo addTask={this.handleAddToDo}/>
           </div>
+          <aside>
+            <Legend/>
+          </aside>
           <div className="row">
             <ToDoList
               listOfTasks={this.state.tasks}
