@@ -10,9 +10,10 @@ export const FILTER_ALL = 0;
 export const FILTER_UNFINISHED = 1;
 export const FILTER_FINISHED = 2;
 
-const metoda = () => {
+export const PRIORITY_LOW = 3;
+export const PRIORITY_NORMAL = 2;
+export const PRIORITY_HIGH = 1;
 
-}
 
 class App extends Component {
 
@@ -48,8 +49,8 @@ class App extends Component {
     });
   }
 
-  handleAddToDo(name) {
-    const newTasks = saveNewTask(name);
+  handleAddToDo(name, priority) {
+    const newTasks = saveNewTask(name, priority);
     this.setState({ tasks: newTasks });
     this.updateCounters();
   }

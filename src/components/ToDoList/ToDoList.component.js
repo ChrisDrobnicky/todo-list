@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ToDoList.stylesheet.css';
+import {PRIORITY_LOW, PRIORITY_NORMAL, PRIORITY_HIGH} from '../App/App.component';
 
 const ToDoList = (props) => {
 
@@ -18,6 +19,13 @@ const ToDoList = (props) => {
             <div className={`${styles.toDoListItem} ${styles[item.isDone ? 'greenBoxShadow' : 'redBoxShadow']}`}>
               <span className={styles.itemIndex}>{index + 1}.</span>
               {item.title}
+              <span className={styles.priorityWrapper}>
+                <i
+                  className = {`circle
+                  ${item.priority === PRIORITY_LOW ? 'yellow'
+                    : item.priority === PRIORITY_NORMAL ? 'orange' : 'red'} icon`}
+                ></i>
+              </span>
               <span className={styles.iconWrapper}>
                 <i
                   className={`thumbs outline ${item.isDone ? 'up' : 'down'} icon`}
