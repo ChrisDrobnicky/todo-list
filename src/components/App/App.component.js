@@ -91,12 +91,8 @@ class App extends Component {
       <div className={styles.App}>
         <Header/>
         <main className="ui padded grid">
-          <div className="centered row">
             <AddToDo addTask={this.handleAddToDo}/>
-          </div>
-          <aside>
             <Legend/>
-          </aside>
           <div className="row">
             <ToDoList
               listOfTasks={this.state.tasks}

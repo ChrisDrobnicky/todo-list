@@ -3,7 +3,7 @@ import styles from './Legend.stylesheet.css';
 
 const Legend = () => (
   <aside className={styles.Legend}>
-    <div className="ui mini horizontal divided list">
+    <div className="ui middle aligned divided list">
       <div className="item">
         <i className="circle yellow icon"></i>
           <div className="content">
