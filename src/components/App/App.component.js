@@ -3,6 +3,7 @@ import Header from '../Header/Header.component';
 import AddToDo from '../AddToDo/AddToDo.component';
 import ToDoList from '../ToDoList/ToDoList.component';
 import ToDosFilter from '../ToDosFilter/ToDosFilter.component';
+import Legend from '../Legend/Legend.component';
 import styles from './App.stylesheet.css';
 import {saveNewTask, getTasks, deleteTask, toggleIsDone} from '../../services/services';
 
@@ -10,9 +11,10 @@ export const FILTER_ALL = 0;
 export const FILTER_UNFINISHED = 1;
 export const FILTER_FINISHED = 2;
 
-const metoda = () => {
+export const PRIORITY_LOW = 3;
+export const PRIORITY_NORMAL = 2;
+export const PRIORITY_HIGH = 1;
 
-}
 
 class App extends Component {
 
@@ -48,8 +50,8 @@ class App extends Component {
     });
   }
 
-  handleAddToDo(name) {
-    const newTasks = saveNewTask(name);
+  handleAddToDo(name, priority) {
+    const newTasks = saveNewTask(name, priority);
     this.setState({ tasks: newTasks });
     this.updateCounters();
   }
@@ -89,9 +91,8 @@ class App extends Component {
       <div className={styles.App}>
         <Header/>
         <main className="ui padded grid">
-          <div className="centered row">
             <AddToDo addTask={this.handleAddToDo}/>
-          </div>
+            <Legend/>
           <div className="row">
             <ToDoList
               listOfTasks={this.state.tasks}

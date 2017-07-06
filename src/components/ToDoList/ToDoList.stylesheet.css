@@ -15,6 +15,9 @@
 .itemIndex {
   margin-right: 20px; }
 
+.priorityWrapper {
+  float: right; }
+
 .iconWrapper {
   float: right; }
   .iconWrapper i {
