@@ -30,19 +30,29 @@ class AddToDo extends Component {
   }
 
   render() {
+    const generateButtonClasses = (priority, currentPriority) => {
+      return priority === currentPriority ? 'ui icon button active' : 'ui icon button';
+    };
+
     return (
       <section className={styles.AddToDo}>
         <div className="ui huge action input">
           <input type="text" placeholder="Add ToDo..." onChange={this.handleInputChange} value={this.state.taskName} />
-           <button className="ui icon button" onClick={() => this.handleButtonClick(PRIORITY_LOW)}>
-             <i className="circle large icon yellow"></i>
-           </button>
-           <button className="ui icon button" onClick={() => this.handleButtonClick(PRIORITY_NORMAL)}>
-             <i className="circle large icon orange"></i>
-           </button>
-           <button className="ui icon button" onClick={() => this.handleButtonClick(PRIORITY_HIGH)}>
-             <i className="circle large icon red"></i>
-           </button>
+          <button
+            className={generateButtonClasses(PRIORITY_LOW, this.state.priority)}
+            onClick={() => this.handleButtonClick(PRIORITY_LOW)}>
+            <i className="circle large icon yellow"></i>
+          </button>
+          <button
+            className={generateButtonClasses(PRIORITY_NORMAL, this.state.priority)}
+            onClick={() => this.handleButtonClick(PRIORITY_NORMAL)}>
+            <i className="circle large icon orange"></i>
+          </button>
+          <button
+            className={generateButtonClasses(PRIORITY_HIGH, this.state.priority)}
+            onClick={() => this.handleButtonClick(PRIORITY_HIGH)}>
+            <i className="circle large icon red"></i>
+          </button>
           <button className="ui icon positive button" onClick={this.handleAddTodoClick}>
             <i className="plus large icon"></i>
           </button>
