@@ -15,11 +15,11 @@ class AddToDo extends Component {
   }
 
   handleAddTodoClick() {
-  const nameToSave = this.state.taskName;
-  const priorityToSave = this.state.priority;
-  this.props.addTask(nameToSave, priorityToSave);
-  this.setState({ taskName: '' });
-}
+    const nameToSave = this.state.taskName;
+    const priorityToSave = this.state.priority;
+    this.props.addTask(nameToSave, priorityToSave);
+    this.setState({taskName: ''});
+  }
 
   handleInputChange(event) {
     this.setState({ taskName: event.target.value });

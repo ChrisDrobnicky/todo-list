@@ -12,6 +12,17 @@ const ToDoList = (props) => {
     props.toggleIsDone(itemID);
   };
 
+  const colorMapper = priority => {
+    switch(priority) {
+      case PRIORITY_HIGH:
+        return 'red';
+      case PRIORITY_NORMAL:
+        return 'orange';
+      default:
+        return 'yellow';
+    }
+  };
+
   return (
     <section className={styles.ToDoList}>
       <div className="ui massive list">
@@ -27,11 +38,7 @@ const ToDoList = (props) => {
                 <i className="trash outline icon" onClick={() => handleDeleteOnClick(item.id)}></i>
               </span>
               <span className={styles.priorityWrapper}>
-                <i
-                  className = {`circle
-                  ${item.priority === PRIORITY_LOW ? 'yellow'
-                    : item.priority === PRIORITY_NORMAL ? 'orange' : 'red'} icon`}
-                ></i>
+                <i className = {`circle ${colorMapper(item.priority)} icon`}></i>
               </span>
             </div>
           </div>
@@ -39,6 +46,6 @@ const ToDoList = (props) => {
       </div>
     </section>
   )
-}
+};
 
 export default ToDoList;
