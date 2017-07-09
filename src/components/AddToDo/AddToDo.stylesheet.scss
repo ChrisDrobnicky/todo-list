@@ -1,3 +1,14 @@
 .AddToDo {
   margin: 20px 0;
 }
+
+.descritpionDisabled {
+  visibility: hidden;
+}
+.descriptionEnabled {
+  visibility: visible;
+}
+
+.button {
+  float: left;
+}
