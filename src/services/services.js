@@ -10,11 +10,12 @@ export const getTasks = () => {
   return savedTasks ? savedTasks : [];
 };
 
-export const saveNewTask = name => {
+export const saveNewTask = (name, priority) => {
   const taskToSave = {
     title: name,
     isDone: false,
-    id: generateID()
+    id: generateID(),
+    priority: priority
   };
   let savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
