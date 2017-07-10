@@ -8,11 +8,12 @@ class AddToDo extends Component {
     this.handleAddTodoClick = this.handleAddTodoClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormClick = this.handleFormClick.bind(this);
-    this.handleDescriptionClick = this.handleDescriptionClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleDescriptionClick = this.handleDescriptionClick.bind(this);
     this.state = {
       taskName: '',
-      priority: PRIORITY_LOW
+      priority: PRIORITY_LOW,
+      descriptionDisabled: true
     }
   }
 
@@ -36,15 +37,14 @@ class AddToDo extends Component {
   }
 
   handleDescriptionClick() {
-   alert('i need class');
+    this.setState({ descriptionDisabled: !this.state.descriptionDisabled });
   }
 
   render() {
     const generateButtonClasses = (priority, currentPriority) => {
       return priority === currentPriority ? 'ui icon button active' : 'ui icon button';
     };
-
-
+    const descriptionClass = this.state.descriptionDisabled ? 'descriptionDisabled' : 'descriptionEnabled';
 
     return (
       <section className={styles.AddToDo}>
@@ -74,7 +74,7 @@ class AddToDo extends Component {
             <button className={`ui teal button ${styles.descriptionButton}`} onClick={this.handleDescriptionClick}>
               Add description
             </button>
-            <textarea rows="2" className={styles.descriptionDisabled}></textarea>
+            <textarea rows="2" className={styles[descriptionClass]}></textarea>
           </div>
         </form>
       </section>
