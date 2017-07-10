@@ -50,8 +50,8 @@ class App extends Component {
     });
   }
 
-  handleAddToDo(name, priority) {
-    const newTasks = saveNewTask(name, priority);
+  handleAddToDo(name, priority, description) {
+    const newTasks = saveNewTask(name, priority, description);
     this.setState({ tasks: newTasks });
     this.updateCounters();
   }

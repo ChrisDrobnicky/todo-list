@@ -10,8 +10,11 @@ class AddToDo extends Component {
     this.handleFormClick = this.handleFormClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleDescriptionClick = this.handleDescriptionClick.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+
     this.state = {
       taskName: '',
+      taskDescription: '',
       priority: PRIORITY_LOW,
       descriptionDisabled: true,
     }
@@ -20,12 +23,17 @@ class AddToDo extends Component {
   handleAddTodoClick() {
     const nameToSave = this.state.taskName;
     const priorityToSave = this.state.priority;
-    this.props.addTask(nameToSave, priorityToSave);
-    this.setState({taskName: ''});
+    const descriptionToSave = this.state.taskDescription;
+    this.props.addTask(nameToSave, priorityToSave, descriptionToSave);
+    this.setState({taskName: '', taskDescription: ''});
   }
 
   handleInputChange(event) {
     this.setState({ taskName: event.target.value });
+  }
+
+  handleDescriptionChange(event) {
+    this.setState({ taskDescription: event.target.value });
   }
 
   handleButtonClick(priority) {
@@ -74,7 +82,10 @@ class AddToDo extends Component {
             <button className={`ui teal button ${styles.descriptionButton}`} onClick={this.handleDescriptionClick}>
               Add description
             </button>
-            <textarea rows="2" className={styles[descriptionClass]}></textarea>
+            <textarea rows="2" className={styles[descriptionClass]}
+                      onChange={this.handleDescriptionChange}
+                      value={this.state.taskDescription}>
+            </textarea>
           </div>
         </form>
       </section>
