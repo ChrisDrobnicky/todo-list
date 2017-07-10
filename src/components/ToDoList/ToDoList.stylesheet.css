@@ -23,4 +23,10 @@
   .iconWrapper i {
     cursor: pointer; }
 
+.descriptionHidden {
+  visibility: hidden; }
+
+.descriptionVisible {
+  visibility: visible; }
+
 /*# sourceMappingURL=ToDoList.stylesheet.css.map */

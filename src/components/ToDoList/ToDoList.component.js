@@ -30,6 +30,15 @@ const ToDoList = (props) => {
             <div className={`${styles.toDoListItem} ${styles[item.isDone ? 'greenBoxShadow' : 'redBoxShadow']}`}>
               <span className={styles.itemIndex}>{index + 1}.</span>
               <span className={styles.itemName}>{item.title}</span>
+              <span
+                className={` ${styles[item.description.length > 0 ? 'descriptionVisible' : 'descriptionHidden']}`}
+                data-tooltip={item.description}
+                data-position="right center"
+              >
+                <i
+                  className={`info circle icon`}
+                ></i>
+              </span>
               <span className={styles.iconWrapper}>
                 <i
                   className={`thumbs outline ${item.isDone ? 'up' : 'down'} icon`}
