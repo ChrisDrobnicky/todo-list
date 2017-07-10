@@ -6,11 +6,12 @@
   display: flex;
 }
 
-.descriptionDisabled {
+.descriptionHidden {
   visibility: hidden;
   order: 1;
 }
-.descriptionEnabled {
+
+.descriptionVisible {
   visibility: visible;
   order: 1;
 }

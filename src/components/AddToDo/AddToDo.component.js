@@ -13,7 +13,7 @@ class AddToDo extends Component {
     this.state = {
       taskName: '',
       priority: PRIORITY_LOW,
-      descriptionDisabled: true
+      descriptionDisabled: true,
     }
   }
 
@@ -44,7 +44,7 @@ class AddToDo extends Component {
     const generateButtonClasses = (priority, currentPriority) => {
       return priority === currentPriority ? 'ui icon button active' : 'ui icon button';
     };
-    const descriptionClass = this.state.descriptionDisabled ? 'descriptionDisabled' : 'descriptionEnabled';
+    const descriptionClass = this.state.descriptionDisabled ? 'descriptionHidden' : 'descriptionVisible';
 
     return (
       <section className={styles.AddToDo}>
