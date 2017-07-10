@@ -79,7 +79,7 @@ class AddToDo extends Component {
             </button>
           </div>
           <div className={styles.descriptionContainer}>
-            <button className={`ui teal button ${styles.descriptionButton}`} onClick={this.handleDescriptionClick}>
+            <button className={`ui positive basic button ${styles.descriptionButton}`} onClick={this.handleDescriptionClick}>
               Additional description
             </button>
             <textarea rows="2" className={styles[descriptionClass]}
