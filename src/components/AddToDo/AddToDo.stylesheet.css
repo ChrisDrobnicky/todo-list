@@ -1,13 +1,19 @@
 .AddToDo {
   margin: 20px auto; }
 
-.descritpionDisabled {
-  visibility: hidden; }
+.descriptionContainer {
+  display: flex; }
+
+.descriptionDisabled {
+  visibility: hidden;
+  order: 1; }
 
 .descriptionEnabled {
-  visibility: visible; }
+  visibility: visible;
+  order: 1; }
 
-.button {
-  float: left; }
+.descriptionButton {
+  order: 2;
+  text-align: center; }
 
 /*# sourceMappingURL=AddToDo.stylesheet.css.map */

@@ -2,13 +2,20 @@
   margin: 20px auto;
 }
 
-.descritpionDisabled {
+.descriptionContainer {
+  display: flex;
+}
+
+.descriptionDisabled {
   visibility: hidden;
+  order: 1;
 }
 .descriptionEnabled {
   visibility: visible;
+  order: 1;
 }
 
-.button {
-  float: left;
+.descriptionButton {
+  order: 2;
+  text-align: center;
 }

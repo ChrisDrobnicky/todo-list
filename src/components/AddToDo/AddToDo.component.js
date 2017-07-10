@@ -44,6 +44,8 @@ class AddToDo extends Component {
       return priority === currentPriority ? 'ui icon button active' : 'ui icon button';
     };
 
+
+
     return (
       <section className={styles.AddToDo}>
         <form className="ui form" onClick={this.handleFormClick}>
@@ -68,9 +70,9 @@ class AddToDo extends Component {
               <i className="plus large icon"></i>
             </button>
           </div>
-          <div className="field">
-            <button className={`ui teal icon button ${styles.button}`} onClick={this.handleDescriptionClick}>
-              <i className="arrow circle outline down big icon"></i>
+          <div className={styles.descriptionContainer}>
+            <button className={`ui teal button ${styles.descriptionButton}`} onClick={this.handleDescriptionClick}>
+              Add description
             </button>
             <textarea rows="2" className={styles.descriptionDisabled}></textarea>
           </div>
