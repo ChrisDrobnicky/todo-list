@@ -29,7 +29,7 @@ const ToDoList = (props) => {
         {props.listOfTasks.map((item, index) => <div className="item" key={index}>
             <div
               className={`${styles.toDoListItem} ${styles[item.isDone ? 'greenBoxShadow' : 'redBoxShadow']}`}
-              data-tooltip={item.description}
+              data-tooltip={item.description.length > 0 ? item.description : null}
               data-position="right center"
             >
               <span className={styles.itemIndex}>{index + 1}.</span>
