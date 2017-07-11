@@ -1,19 +1,24 @@
 .AddToDo {
   margin: 20px auto; }
 
-.descriptionContainer {
-  display: flex; }
+.inputWrapper {
+  width: 40vw; }
 
-.descriptionHidden {
-  visibility: hidden;
-  order: 1; }
+.form {
+  margin: 0 auto; }
+
+.descriptionNone {
+  display: none;
+  width: 452px; }
 
 .descriptionVisible {
-  visibility: visible;
-  order: 1; }
+  display: block;
+  width: 452px; }
 
-.descriptionButton {
-  order: 2;
-  text-align: center; }
+.descriptionAdd {
+  width: 452px;
+  text-align: right;
+  color: darkcyan;
+  font-size: 1em; }
 
 /*# sourceMappingURL=AddToDo.stylesheet.css.map */

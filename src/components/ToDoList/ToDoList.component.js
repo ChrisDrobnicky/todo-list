@@ -27,14 +27,15 @@ const ToDoList = (props) => {
     <section className={styles.ToDoList}>
       <div className="ui massive list">
         {props.listOfTasks.map((item, index) => <div className="item" key={index}>
-            <div className={`${styles.toDoListItem} ${styles[item.isDone ? 'greenBoxShadow' : 'redBoxShadow']}`}>
+            <div
+              className={`${styles.toDoListItem} ${styles[item.isDone ? 'greenBoxShadow' : 'redBoxShadow']}`}
+              data-tooltip={item.description}
+              data-position="right center"
+            >
               <span className={styles.itemIndex}>{index + 1}.</span>
               <span className={styles.itemName}>{item.title}</span>
               <span
-                className={` ${styles[item.description.length > 0 ? 'descriptionVisible' : 'descriptionHidden']}`}
-                data-tooltip={item.description}
-                data-position="right center"
-              >
+                className={` ${styles[item.description.length > 0 ? 'descriptionVisible' : 'descriptionHidden']}`}>
                 <i
                   className={`info circle icon`}
                 ></i>
