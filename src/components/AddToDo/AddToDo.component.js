@@ -46,6 +46,9 @@ class AddToDo extends Component {
 
   handleDescriptionClick() {
     this.setState({ descriptionDisabled: !this.state.descriptionDisabled });
+    if (this.state.descriptionDisabled === false) {
+      this.setState({ taskDescription: '' });
+    }
   }
 
   render() {
