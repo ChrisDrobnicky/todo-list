@@ -64,7 +64,7 @@ class AddToDo extends Component {
           <div className={`ui huge action input ${styles.inputWrapper}`}>
             <input
               type="text"
-              maxLength="25"
+              maxLength="35"
               placeholder="Add ToDo..."
               onChange={this.handleInputChange} value={this.state.taskName}
             />

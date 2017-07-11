@@ -5,7 +5,8 @@
 .toDoListItem {
   width: 40vw;
   padding: 15px;
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .redBoxShadow {
   box-shadow: 0 2px 9px 0 #bd3535; }
@@ -18,7 +19,7 @@
   order: 1; }
 
 .itemName {
-  margin-right: 20px;
+  margin: 20p;
   order: 2;
   flex-grow: 2; }
 
