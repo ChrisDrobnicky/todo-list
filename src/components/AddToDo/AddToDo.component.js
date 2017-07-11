@@ -61,31 +61,34 @@ class AddToDo extends Component {
     return (
       <section className={styles.AddToDo}>
         <form className={styles.form} onClick={this.handleFormClick}>
-          <div className={`ui huge action input ${styles.inputWrapper}`}>
-            <input
-              type="text"
-              maxLength="35"
-              placeholder="Add ToDo..."
-              onChange={this.handleInputChange} value={this.state.taskName}
-            />
-            <button
-              className={generateButtonClasses(PRIORITY_LOW, this.state.priority)}
-              onClick={() => this.handleButtonClick(PRIORITY_LOW)}>
-              <i className="circle large icon yellow"></i>
-            </button>
-            <button
-              className={generateButtonClasses(PRIORITY_NORMAL, this.state.priority)}
-              onClick={() => this.handleButtonClick(PRIORITY_NORMAL)}>
-              <i className="circle large icon orange"></i>
-            </button>
-            <button
-              className={generateButtonClasses(PRIORITY_HIGH, this.state.priority)}
-              onClick={() => this.handleButtonClick(PRIORITY_HIGH)}>
-              <i className="circle large icon red"></i>
-            </button>
-            <button className="ui icon positive button" onClick={this.handleAddTodoClick}>
-              <i className="plus large icon"></i>
-            </button>
+          <div className={styles.inputWrapper}>
+            <div className="ui huge action input">
+              <input
+                type="text"
+                className={styles.input}
+                maxLength="35"
+                placeholder="Add ToDo..."
+                onChange={this.handleInputChange} value={this.state.taskName}
+              />
+              <button
+                className={generateButtonClasses(PRIORITY_LOW, this.state.priority)}
+                onClick={() => this.handleButtonClick(PRIORITY_LOW)}>
+                <i className="circle large icon yellow"></i>
+              </button>
+              <button
+                className={generateButtonClasses(PRIORITY_NORMAL, this.state.priority)}
+                onClick={() => this.handleButtonClick(PRIORITY_NORMAL)}>
+                <i className="circle large icon orange"></i>
+              </button>
+              <button
+                className={generateButtonClasses(PRIORITY_HIGH, this.state.priority)}
+                onClick={() => this.handleButtonClick(PRIORITY_HIGH)}>
+                <i className="circle large icon red"></i>
+              </button>
+              <button className="ui icon positive button" onClick={this.handleAddTodoClick}>
+                <i className="plus large icon"></i>
+              </button>
+            </div>
           </div>
           <div className={styles.descriptionWrapper}>
             <textarea rows="2"
@@ -93,8 +96,10 @@ class AddToDo extends Component {
                       onChange={this.handleDescriptionChange}
                       value={this.state.taskDescription}>
             </textarea>
-            <div className={styles.descriptionAdd} onClick={this.handleDescriptionClick}>
-              {descriptionAddText}
+            <div className={styles.descriptionAdd} >
+              <span
+                className={styles.descriptionAdd__text}
+                onClick={this.handleDescriptionClick}> {descriptionAddText} </span>
             </div>
           </div>
         </form>

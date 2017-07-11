@@ -2,23 +2,35 @@
   margin: 20px auto; }
 
 .inputWrapper {
-  width: 40vw; }
+  width: 40vw;
+  text-align: center; }
+
+.input {
+  width: 28vw; }
 
 .form {
   margin: 0 auto; }
 
-.descriptionNone {
-  display: none;
-  width: 452px; }
-
-.descriptionVisible {
-  display: block;
-  width: 452px; }
+.descriptionWrapper {
+  width: 40vw; }
 
 .descriptionAdd {
-  width: 452px;
+  width: 28vw;
   text-align: right;
   color: darkcyan;
   font-size: 1em; }
+
+.descriptionAdd__text {
+  cursor: pointer; }
+
+.descriptionNone {
+  margin-top: 15px;
+  display: none;
+  width: 28vw; }
+
+.descriptionVisible {
+  margin-top: 15px;
+  display: block;
+  width: 28vw; }
 
 /*# sourceMappingURL=AddToDo.stylesheet.css.map */
