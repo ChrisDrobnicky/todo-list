@@ -4,6 +4,7 @@ import AddToDo from '../AddToDo/AddToDo.component';
 import ToDoList from '../ToDoList/ToDoList.component';
 import ToDosFilter from '../ToDosFilter/ToDosFilter.component';
 import Legend from '../Legend/Legend.component';
+import Footer from '../Footer/Footer.component';
 import styles from './App.stylesheet.css';
 import {saveNewTask, getTasks, deleteTask, toggleIsDone} from '../../services/services';
 
@@ -91,8 +92,8 @@ class App extends Component {
       <div className={styles.App}>
         <Header/>
         <main className="ui padded grid">
-            <AddToDo addTask={this.handleAddToDo}/>
-            <Legend/>
+          <AddToDo addTask={this.handleAddToDo}/>
+          <Legend/>
           <div className="row">
             <ToDoList
               listOfTasks={this.state.tasks}
@@ -108,6 +109,9 @@ class App extends Component {
             />
           </div>
         </main>
+        <div className="centered row">
+          <Footer/>
+        </div>
       </div>
     )
   }
