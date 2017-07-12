@@ -25,7 +25,10 @@ class AddToDo extends Component {
     const priorityToSave = this.state.priority;
     const descriptionToSave = this.state.taskDescription;
     this.props.addTask(nameToSave, priorityToSave, descriptionToSave);
-    this.setState({taskName: '', taskDescription: ''});
+    this.setState({
+      taskName: '',
+      taskDescription: ''
+    });
   }
 
   handleInputChange(event) {
@@ -56,7 +59,7 @@ class AddToDo extends Component {
       return priority === currentPriority ? 'ui icon button active' : 'ui icon button';
     };
     const descriptionClass = this.state.descriptionDisabled ? 'descriptionNone' : 'descriptionVisible';
-    const descriptionAddText = this.state.descriptionDisabled ? `Add description ↓` : 'Hide description ↑';
+    const descriptionAddText = this.state.descriptionDisabled ? 'Add description ↓' : 'Hide description ↑';
 
     return (
       <section className={styles.AddToDo}>

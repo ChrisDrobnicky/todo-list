@@ -36,9 +36,7 @@ const ToDoList = (props) => {
               <span className={styles.itemName}>{item.title}</span>
               <span
                 className={` ${styles[item.description.length > 0 ? 'descriptionVisible' : 'descriptionHidden']}`}>
-                <i
-                  className={`info circle icon`}
-                ></i>
+                <i className={`info circle icon`}></i>
               </span>
               <span className={styles.iconWrapper}>
                 <i
