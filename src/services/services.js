@@ -10,9 +10,10 @@ export const getTasks = () => {
   return savedTasks ? savedTasks : [];
 };
 
-export const saveNewTask = (name, priority) => {
+export const saveNewTask = (name, priority, description) => {
   const taskToSave = {
     title: name,
+    description: description,
     isDone: false,
     id: generateID(),
     priority: priority

@@ -4,7 +4,9 @@
 
 .toDoListItem {
   width: 40vw;
-  padding: 15px; }
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap; }
 
 .redBoxShadow {
   box-shadow: 0 2px 9px 0 #bd3535; }
@@ -13,14 +15,29 @@
   box-shadow: 0 2px 9px 0 #00bd27; }
 
 .itemIndex {
-  margin-right: 20px; }
+  margin-right: 20px;
+  order: 1; }
+
+.itemName {
+  margin: 20p;
+  order: 2;
+  flex-grow: 2; }
 
 .priorityWrapper {
-  float: right; }
+  order: 4; }
 
 .iconWrapper {
+  order: 5;
   float: right; }
   .iconWrapper i {
     cursor: pointer; }
+
+.descriptionHidden {
+  order: 3;
+  visibility: hidden; }
+
+.descriptionVisible {
+  order: 3;
+  visibility: visible; }
 
 /*# sourceMappingURL=ToDoList.stylesheet.css.map */

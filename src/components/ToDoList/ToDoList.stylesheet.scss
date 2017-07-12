@@ -6,6 +6,8 @@
 .toDoListItem {
   width: 40vw;
   padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .redBoxShadow {
@@ -18,15 +20,33 @@
 
 .itemIndex {
   margin-right: 20px;
+  order: 1;
+}
+
+.itemName {
+  margin: 0;
+  order: 2;
+  flex-grow: 2;
 }
 
 .priorityWrapper {
-  float: right;
+  order: 4
 }
 
 .iconWrapper {
+  order: 5;
   float: right;
   i {
     cursor: pointer;
   }
+}
+
+.descriptionHidden {
+  order: 3;
+  visibility: hidden;
+}
+
+.descriptionVisible {
+  order: 3;
+  visibility: visible;
 }
