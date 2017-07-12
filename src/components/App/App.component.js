@@ -109,9 +109,7 @@ class App extends Component {
             />
           </div>
         </main>
-        <div className="centered row">
-          <Footer/>
-        </div>
+        <Footer/>
       </div>
     )
   }

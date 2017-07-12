@@ -19,7 +19,7 @@
   order: 1; }
 
 .itemName {
-  margin: 20p;
+  margin: 0;
   order: 2;
   flex-grow: 2; }
 
