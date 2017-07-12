@@ -1,0 +1,13 @@
+.ToDosFilter {
+  margin-bottom: 70px; }
+
+.buttonWrapper {
+  display: inline-block;
+  margin: 10px; }
+
+.buttonWrapper--active {
+  box-shadow: 0px 31px 21px -20px #1f1f1f;
+  position: relative;
+  bottom: 10px; }
+
+/*# sourceMappingURL=ToDosFilter.stylesheet.css.map */
