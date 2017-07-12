@@ -1,4 +1,5 @@
 .App {
-  position: relative; }
+  position: relative;
+  min-height: 100vh; }
 
 /*# sourceMappingURL=App.stylesheet.css.map */
