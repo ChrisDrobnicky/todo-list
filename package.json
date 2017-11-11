@@ -1,6 +1,7 @@
 {
   "name": "todo-list",
   "version": "0.1.0",
+  "homepage": "https://chrisdrobnicky.github.io/todo-app",
   "private": true,
   "dependencies": {
     "custom-react-scripts": "0.0.23",

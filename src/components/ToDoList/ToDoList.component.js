@@ -26,7 +26,7 @@ const ToDoList = (props) => {
   return (
     <section className={styles.ToDoList}>
       <div className="ui massive list">
-        {props.listOfTasks.map((item, index) => <div className="item" key={index}>
+        {props.listOfTasks.map((item, index) => <div className="item" key={item.id}>
             <div
               className={`${styles.toDoListItem} ${styles[item.isDone ? 'greenBoxShadow' : 'redBoxShadow']}`}
               data-tooltip={item.description.length > 0 ? item.description : null}
@@ -46,7 +46,7 @@ const ToDoList = (props) => {
                 <i className="trash outline icon" onClick={() => handleDeleteOnClick(item.id)}></i>
               </span>
               <span className={styles.priorityWrapper}>
-                <i className = {`circle ${colorMapper(item.priority)} icon`}></i>
+                <i className ={`circle ${colorMapper(item.priority)} icon`}></i>
               </span>
             </div>
           </div>
