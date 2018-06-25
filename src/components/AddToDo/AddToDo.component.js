@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import { addTodoActionCreator } from '../../store/main-reducer'
 import styles from './AddToDo.stylesheet.css';
 import {PRIORITY_LOW, PRIORITY_NORMAL, PRIORITY_HIGH} from '../App/App.component';
 
@@ -29,18 +31,24 @@ class AddToDo extends Component {
       taskName: '',
       taskDescription: ''
     });
+    const todoToAdd = {
+      name: nameToSave,
+      priority: priorityToSave,
+      description: descriptionToSave
+    };
+    this.props.addTodo(todoToAdd)
   }
 
   handleInputChange(event) {
-    this.setState({ taskName: event.target.value });
+    this.setState({taskName: event.target.value});
   }
 
   handleDescriptionChange(event) {
-    this.setState({ taskDescription: event.target.value });
+    this.setState({taskDescription: event.target.value});
   }
 
   handleButtonClick(priority) {
-    this.setState({ priority: priority});
+    this.setState({priority: priority});
   }
 
   handleFormClick(event) {
@@ -48,9 +56,9 @@ class AddToDo extends Component {
   }
 
   handleDescriptionClick() {
-    this.setState({ descriptionDisabled: !this.state.descriptionDisabled });
+    this.setState({descriptionDisabled: !this.state.descriptionDisabled});
     if (this.state.descriptionDisabled === false) {
-      this.setState({ taskDescription: '' });
+      this.setState({taskDescription: ''});
     }
   }
 
@@ -106,9 +114,22 @@ class AddToDo extends Component {
             </div>
           </div>
         </form>
+        {this.props.name}
       </section>
     )
   }
 }
 
-export default AddToDo;
+function mapStateToProps(state) { // sluzy do korzystania z Redux state
+  return {
+    name: state.name
+  }
+}
+
+function mapDispatchToProps(dispatch) { // sluzy do zmiany state'u w Redux, tutaj uzywasz action creators
+  return {
+    addTodo: (todo) => addTodoActionCreator(dispatch, todo)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddToDo);
